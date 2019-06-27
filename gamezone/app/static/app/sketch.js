@@ -8,6 +8,7 @@ let wristRx = 0;
 let wristRy = 0;
 let wristLx = 0;
 let wristLy = 0;
+var t = false;
 
 function setup() {
   createCanvas(500, 500);
@@ -18,6 +19,7 @@ function setup() {
   poseNet = ml5.poseNet(video, modelReady);
   poseNet.on("pose", gotPoses);
   obs = [];
+
   var button = createButton("reset");
   button.mousePressed(resetSketch);
 }
@@ -29,6 +31,7 @@ function resetSketch() {
 
 function modelReady() {
   console.log("Model ready");
+  t = true;
 }
 let a0 = 0;
 
